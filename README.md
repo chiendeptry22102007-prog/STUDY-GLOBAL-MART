@@ -1,4 +1,4 @@
-<img width="959" height="540" alt="{0AA8B723-1CAC-4DEF-A1C8-9554E9E6CABF}" src="https://github.com/user-attachments/assets/77a98d6f-4406-4719-b1f8-ca77e22a7478" />"# Du an STUDY MARK - ASP.NET Core MVC" 
+ 
 # 🛒 STUDY MARK (GLOBAL MART) - Hệ Thống Thương Mại Điện Tử
 
 Dự án xây dựng website bán hàng trực tuyến **STUDY MARK** áp dụng quy trình phát triển phần mềm linh hoạt (Agile/Scrum) chia thành **5 Sprint**.
