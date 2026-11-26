@@ -1,0 +1,2 @@
+@model List<Order>
+<h2>Thống kê doanh thu</h2><h3>Doanh thu đơn đã giao: @((decimal)ViewBag.Revenue).ToString("N0") ₫</h3><table class="table"><tr><th>Mã đơn</th><th>Ngày</th><th>Trạng thái</th><th>Tổng</th></tr>@foreach(var o in Model){<tr><td>#@o.Id</td><td>@o.CreatedAt.ToString("dd/MM/yyyy")</td><td>@o.Status</td><td>@o.Total.ToString("N0") ₫</td></tr>}</table>

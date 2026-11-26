@@ -1,0 +1,2 @@
+@model List<User>
+<h2>Khách hàng</h2><table class="table"><tr><th>Họ tên</th><th>Email</th><th>Điện thoại</th></tr>@foreach(var u in Model){<tr><td>@u.FullName</td><td>@u.Email</td><td>@u.Phone</td></tr>}</table>
