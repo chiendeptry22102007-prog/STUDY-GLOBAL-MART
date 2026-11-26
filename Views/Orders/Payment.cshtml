@@ -1,0 +1,45 @@
+@model Order
+@{
+    var transferContent = $"STUDYMARK {Model.Id}";
+}
+<div class="container py-4">
+  <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width:900px;">
+    <div class="card-body p-4 p-md-5">
+      <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 border-bottom pb-3 mb-4">
+        <div><h2 class="fw-bold mb-1">Thanh toán chuyển khoản</h2><div class="text-secondary">STUDY MARK · Đơn hàng #GM-@Model.Id.ToString("D6")</div></div>
+        <span class="badge bg-warning text-dark fs-6">Chờ thanh toán</span>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <h5 class="fw-bold">Thông tin chuyển khoản</h5>
+          <div class="rounded-3 p-3 bg-light text-dark">
+            <p class="mb-2"><strong>Ngân hàng:</strong> CAKE BANK</p>
+            <p class="mb-2"><strong>Chủ tài khoản:</strong> (theo tên hiển thị trong ứng dụng CAKE)</p>
+            <p class="mb-2"><strong>Số tài khoản:</strong> <span class="fw-bold fs-5">0342554475</span></p>
+            <p class="mb-2"><strong>Số tiền:</strong> <span class="fw-bold text-danger fs-4">@Model.Total.ToString("N0") ₫</span></p>
+            <p class="mb-0"><strong>Nội dung chuyển khoản:</strong> <span class="fw-bold">@transferContent</span></p>
+          </div>
+          <div class="alert alert-info mt-3 mb-0">
+            QR hiện tại là QR tĩnh: quét để lấy thông tin tài khoản. Trước khi chuyển, vui lòng nhập đúng số tiền và nội dung chuyển khoản ở trên.
+          </div>
+          <h5 class="fw-bold mt-4">Đơn hàng</h5>
+          <ul class="list-group mb-3">
+            @foreach(var item in Model.Items){<li class="list-group-item d-flex justify-content-between"><span>@item.ProductName × @item.Quantity</span><strong>@((item.UnitPrice*item.Quantity).ToString("N0")) ₫</strong></li>}
+            <li class="list-group-item d-flex justify-content-between"><strong>Tổng cộng</strong><strong class="text-danger">@Model.Total.ToString("N0") ₫</strong></li>
+          </ul>
+          <a href="/Orders" class="btn btn-outline-primary">Theo dõi đơn hàng</a>
+          <button class="btn btn-primary ms-2" onclick="window.print()">In thông tin thanh toán</button>
+        </div>
+        <div class="col-lg-5 text-center">
+          <div class="p-3 border rounded-4 bg-white">
+            <img src="/images/payment/cakebank-qr.png" alt="QR chuyển khoản CAKE BANK" class="img-fluid" style="max-width:340px" />
+            <div class="small text-secondary mt-2">Mở ứng dụng ngân hàng và quét QR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+@@media print { .site-header,.ambient-bg,button,a.btn {display:none!important;} body{background:white!important;color:#111!important;} .card{box-shadow:none!important;} }
+</style>
