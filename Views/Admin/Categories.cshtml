@@ -1,0 +1,2 @@
+@model List<Category>
+<h2>Quản lý danh mục</h2><form method="post" action="/Admin/AddCategory" class="row g-2 mb-4"><div class="col"><input name="name" class="form-control" placeholder="Tên danh mục" required></div><div class="col"><input name="description" class="form-control" placeholder="Mô tả"></div><button class="btn btn-primary">Thêm</button></form><ul class="list-group">@foreach(var c in Model){<li class="list-group-item">@c.Name — @c.Description</li>}</ul>

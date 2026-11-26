@@ -1,0 +1,2 @@
+@model List<Order>
+<h2>Quản lý đơn hàng</h2>@foreach(var o in Model){<div class="card mb-3"><div class="card-body"><h5>Đơn #@o.Id • @o.CustomerName • @o.Total.ToString("N0") ₫</h5><p>@o.Phone — @o.Address</p><form method="post" action="/Admin/UpdateOrder" class="d-flex gap-2"><input type="hidden" name="id" value="@o.Id"><select name="status" class="form-select"><option>Chờ xác nhận</option><option>Đang giao</option><option>Đã giao</option><option>Đã hủy</option></select><button class="btn btn-primary">Cập nhật trạng thái</button></form></div></div>}
